@@ -20,23 +20,18 @@ class LSTMTrainer:
         self.num_epochs = num_epochs
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         
-        # Preprocess data and split into training and validation sets
         self._prepare_data()
         
-        # Initialize model, loss function, and optimizer
         self.model = StockPriceLSTM(self.input_size, hidden_size, num_layers, output_size=1).to(self.device)
         self.criterion = nn.MSELoss()
         self.optimizer = optim.Adam(self.model.parameters(), lr=learning_rate)
 
     def _prepare_data(self):
-        # Data preprocessing
         preprocessor = LSTMDataPreprocessor(self.data, self.time_steps, self.target_column)
         X, y = preprocessor.process()
         
-        # Split into training and validation sets
         X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=self.test_size, shuffle=False)
         
-        # Convert to PyTorch tensors and create DataLoader
         self.train_loader = torch.utils.data.DataLoader(
             torch.utils.data.TensorDataset(X_train, y_train),
             batch_size=self.batch_size,
@@ -45,7 +40,7 @@ class LSTMTrainer:
         
         self.X_val_tensor = X_val.to(self.device)
         self.y_val_tensor = y_val.to(self.device)
-        self.input_size = X_train.shape[2]  # Number of features
+        self.input_size = X_train.shape[2]
 
     def calculate_mape(self, y_true, y_pred):
         """ Calculate Mean Absolute Percentage Error (MAPE) """
@@ -59,7 +54,6 @@ class LSTMTrainer:
             for X_batch, y_batch in self.train_loader:
                 X_batch, y_batch = X_batch.to(self.device), y_batch.to(self.device)
 
-                # Forward pass
                 outputs = self.model(X_batch)
                 loss = self.criterion(outputs.squeeze(), y_batch)
 
@@ -70,7 +64,6 @@ class LSTMTrainer:
 
                 train_loss += loss.item()
 
-            # Calculate average training loss for the epoch
             train_loss /= len(self.train_loader)
             val_loss, val_mape = self.validate()
             print(f'Epoch [{epoch+1}/{self.num_epochs}], Train Loss: {train_loss:.4f}, Val Loss: {val_loss:.4f}, Val MAPE: {val_mape:.2f}%')
@@ -89,7 +82,6 @@ class LSTMTrainer:
         preprocessor = LSTMDataPreprocessor(test_data, self.time_steps, self.target_column)
         X_test, y_test = preprocessor.process()
         
-        # Convert to tensors and move to device
         X_test, y_test = X_test.to(self.device), y_test.to(self.device)
         
         self.model.eval()

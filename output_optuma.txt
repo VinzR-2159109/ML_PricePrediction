@@ -1,0 +1,56 @@
+Starting script...
+Starting hyperparameter optimization...
+Trial 0: MAPE = 6.62%, Params = {'time_steps': 5, 'hidden_size': 55, 'num_layers': 2, 'learning_rate': 0.020241443005684312, 'batch_size': 16, 'num_epochs': 364}
+Trial 1: MAPE = 41.22%, Params = {'time_steps': 6, 'hidden_size': 77, 'num_layers': 5, 'learning_rate': 0.00028926917973320145, 'batch_size': 128, 'num_epochs': 117}
+Trial 2: MAPE = 7.87%, Params = {'time_steps': 5, 'hidden_size': 28, 'num_layers': 1, 'learning_rate': 0.0002564314470838364, 'batch_size': 16, 'num_epochs': 333}
+Trial 3: MAPE = inf%, Params = {'time_steps': 1, 'hidden_size': 78, 'num_layers': 1, 'learning_rate': 0.0042596141368221145, 'batch_size': 64, 'num_epochs': 105}
+Trial 4: MAPE = 9.94%, Params = {'time_steps': 6, 'hidden_size': 79, 'num_layers': 5, 'learning_rate': 0.008647992598464554, 'batch_size': 128, 'num_epochs': 316}
+Trial 5: MAPE = 9.25%, Params = {'time_steps': 12, 'hidden_size': 84, 'num_layers': 3, 'learning_rate': 0.017151092943400732, 'batch_size': 128, 'num_epochs': 434}
+Trial 6: MAPE = 2.44%, Params = {'time_steps': 19, 'hidden_size': 93, 'num_layers': 2, 'learning_rate': 0.0020644105282374143, 'batch_size': 64, 'num_epochs': 190}
+Trial 7: MAPE = 11.25%, Params = {'time_steps': 9, 'hidden_size': 12, 'num_layers': 4, 'learning_rate': 0.0005675670512196704, 'batch_size': 32, 'num_epochs': 340}
+Trial 8: MAPE = 3.11%, Params = {'time_steps': 17, 'hidden_size': 82, 'num_layers': 4, 'learning_rate': 0.0001313616053048393, 'batch_size': 32, 'num_epochs': 325}
+Trial 9: MAPE = 11.28%, Params = {'time_steps': 5, 'hidden_size': 38, 'num_layers': 3, 'learning_rate': 0.00030322080305930855, 'batch_size': 32, 'num_epochs': 324}
+Trial 10: MAPE = 18.00%, Params = {'time_steps': 19, 'hidden_size': 100, 'num_layers': 2, 'learning_rate': 0.07647397579173773, 'batch_size': 64, 'num_epochs': 207}
+Trial 11: MAPE = 3.21%, Params = {'time_steps': 20, 'hidden_size': 99, 'num_layers': 4, 'learning_rate': 0.0011553527330754629, 'batch_size': 32, 'num_epochs': 225}
+Trial 12: MAPE = 4.69%, Params = {'time_steps': 16, 'hidden_size': 61, 'num_layers': 4, 'learning_rate': 0.00011860025025380436, 'batch_size': 64, 'num_epochs': 216}
+Trial 13: MAPE = 2.24%, Params = {'time_steps': 15, 'hidden_size': 64, 'num_layers': 2, 'learning_rate': 0.001621636374882675, 'batch_size': 32, 'num_epochs': 447}
+Trial 14: MAPE = 1.87%, Params = {'time_steps': 14, 'hidden_size': 61, 'num_layers': 2, 'learning_rate': 0.0018183999735753758, 'batch_size': 64, 'num_epochs': 471}
+Trial 15: MAPE = 3.22%, Params = {'time_steps': 13, 'hidden_size': 56, 'num_layers': 2, 'learning_rate': 0.0014167110021420107, 'batch_size': 32, 'num_epochs': 483}
+Trial 16: MAPE = 3.91%, Params = {'time_steps': 14, 'hidden_size': 67, 'num_layers': 3, 'learning_rate': 0.00540623740230138, 'batch_size': 64, 'num_epochs': 419}
+Trial 17: MAPE = 2.44%, Params = {'time_steps': 10, 'hidden_size': 44, 'num_layers': 1, 'learning_rate': 0.0007220692906539873, 'batch_size': 16, 'num_epochs': 500}
+Trial 18: MAPE = 1.33%, Params = {'time_steps': 15, 'hidden_size': 45, 'num_layers': 2, 'learning_rate': 0.0018388030637914827, 'batch_size': 32, 'num_epochs': 417}
+Trial 19: MAPE = 4.77%, Params = {'time_steps': 9, 'hidden_size': 44, 'num_layers': 3, 'learning_rate': 0.0033930119418705685, 'batch_size': 64, 'num_epochs': 391}
+Trial 20: MAPE = 1.55%, Params = {'time_steps': 17, 'hidden_size': 23, 'num_layers': 1, 'learning_rate': 0.010994798210834142, 'batch_size': 32, 'num_epochs': 253}
+Trial 21: MAPE = 1.80%, Params = {'time_steps': 17, 'hidden_size': 18, 'num_layers': 1, 'learning_rate': 0.012001898578417432, 'batch_size': 32, 'num_epochs': 262}
+Trial 22: MAPE = 2.50%, Params = {'time_steps': 17, 'hidden_size': 11, 'num_layers': 1, 'learning_rate': 0.02607963013819213, 'batch_size': 32, 'num_epochs': 264}
+Trial 23: MAPE = 2.23%, Params = {'time_steps': 17, 'hidden_size': 26, 'num_layers': 1, 'learning_rate': 0.009593392868816575, 'batch_size': 32, 'num_epochs': 266}
+Trial 24: MAPE = 4.63%, Params = {'time_steps': 12, 'hidden_size': 20, 'num_layers': 1, 'learning_rate': 0.0633116572844087, 'batch_size': 32, 'num_epochs': 158}
+Trial 25: MAPE = 3.55%, Params = {'time_steps': 18, 'hidden_size': 34, 'num_layers': 1, 'learning_rate': 0.04585357563387846, 'batch_size': 32, 'num_epochs': 286}
+Trial 26: MAPE = 3.19%, Params = {'time_steps': 15, 'hidden_size': 19, 'num_layers': 2, 'learning_rate': 0.00839106889818377, 'batch_size': 32, 'num_epochs': 246}
+Trial 27: MAPE = 2.68%, Params = {'time_steps': 20, 'hidden_size': 46, 'num_layers': 1, 'learning_rate': 0.012900220747692901, 'batch_size': 32, 'num_epochs': 171}
+Trial 28: MAPE = 6.30%, Params = {'time_steps': 16, 'hidden_size': 33, 'num_layers': 2, 'learning_rate': 0.027959584112152887, 'batch_size': 32, 'num_epochs': 375}
+Trial 29: MAPE = 5.91%, Params = {'time_steps': 12, 'hidden_size': 22, 'num_layers': 2, 'learning_rate': 0.00640854789951058, 'batch_size': 16, 'num_epochs': 142}
+Trial 30: MAPE = 1.93%, Params = {'time_steps': 18, 'hidden_size': 15, 'num_layers': 1, 'learning_rate': 0.0024952081601643775, 'batch_size': 32, 'num_epochs': 289}
+Trial 31: MAPE = 3.47%, Params = {'time_steps': 14, 'hidden_size': 51, 'num_layers': 2, 'learning_rate': 0.0008015750964458142, 'batch_size': 128, 'num_epochs': 404}
+Trial 32: MAPE = 2.03%, Params = {'time_steps': 15, 'hidden_size': 70, 'num_layers': 2, 'learning_rate': 0.003486409576876992, 'batch_size': 64, 'num_epochs': 460}
+Trial 33: MAPE = 9.25%, Params = {'time_steps': 13, 'hidden_size': 56, 'num_layers': 3, 'learning_rate': 0.018965369581427974, 'batch_size': 16, 'num_epochs': 72}
+Trial 34: MAPE = 1.34%, Params = {'time_steps': 16, 'hidden_size': 28, 'num_layers': 1, 'learning_rate': 0.004717940392377563, 'batch_size': 64, 'num_epochs': 357}
+Trial 35: MAPE = 1.63%, Params = {'time_steps': 18, 'hidden_size': 27, 'num_layers': 1, 'learning_rate': 0.005431428235374328, 'batch_size': 128, 'num_epochs': 356}
+Trial 36: MAPE = 2.22%, Params = {'time_steps': 19, 'hidden_size': 28, 'num_layers': 1, 'learning_rate': 0.004143677225054721, 'batch_size': 128, 'num_epochs': 358}
+Trial 37: MAPE = 1.33%, Params = {'time_steps': 16, 'hidden_size': 36, 'num_layers': 1, 'learning_rate': 0.005522699155672549, 'batch_size': 128, 'num_epochs': 359}
+Trial 38: MAPE = 3.10%, Params = {'time_steps': 11, 'hidden_size': 35, 'num_layers': 1, 'learning_rate': 0.0025187136092572103, 'batch_size': 128, 'num_epochs': 299}
+Trial 39: MAPE = inf%, Params = {'time_steps': 2, 'hidden_size': 40, 'num_layers': 1, 'learning_rate': 0.00689470647287858, 'batch_size': 128, 'num_epochs': 384}
+Trial 40: MAPE = 4.78%, Params = {'time_steps': 16, 'hidden_size': 31, 'num_layers': 1, 'learning_rate': 0.00045628065686383984, 'batch_size': 128, 'num_epochs': 413}
+Trial 41: MAPE = 2.29%, Params = {'time_steps': 18, 'hidden_size': 25, 'num_layers': 1, 'learning_rate': 0.004519654082418607, 'batch_size': 128, 'num_epochs': 344}
+Trial 42: MAPE = 2.62%, Params = {'time_steps': 16, 'hidden_size': 40, 'num_layers': 1, 'learning_rate': 0.0026571571187671305, 'batch_size': 128, 'num_epochs': 357}
+Trial 43: MAPE = 1.83%, Params = {'time_steps': 19, 'hidden_size': 49, 'num_layers': 1, 'learning_rate': 0.01543028657433474, 'batch_size': 128, 'num_epochs': 302}
+Trial 44: MAPE = 15.79%, Params = {'time_steps': 20, 'hidden_size': 31, 'num_layers': 5, 'learning_rate': 0.005229185451680821, 'batch_size': 128, 'num_epochs': 427}
+Trial 45: MAPE = 2.04%, Params = {'time_steps': 18, 'hidden_size': 24, 'num_layers': 2, 'learning_rate': 0.009571137499449961, 'batch_size': 64, 'num_epochs': 328}
+Trial 46: MAPE = 2.00%, Params = {'time_steps': 15, 'hidden_size': 37, 'num_layers': 1, 'learning_rate': 0.006921875942461018, 'batch_size': 128, 'num_epochs': 370}
+Trial 47: MAPE = 12.40%, Params = {'time_steps': 7, 'hidden_size': 29, 'num_layers': 2, 'learning_rate': 0.027581762984273495, 'batch_size': 16, 'num_epochs': 312}
+Trial 48: MAPE = 2.72%, Params = {'time_steps': 13, 'hidden_size': 41, 'num_layers': 1, 'learning_rate': 0.001223457938918313, 'batch_size': 64, 'num_epochs': 394}
+Trial 49: MAPE = 3.04%, Params = {'time_steps': 17, 'hidden_size': 15, 'num_layers': 2, 'learning_rate': 0.003713310160117577, 'batch_size': 128, 'num_epochs': 442}
+Best Trial:
+  MAPE: 1.33%
+  Hyperparameters: {'time_steps': 16, 'hidden_size': 36, 'num_layers': 1, 'learning_rate': 0.005522699155672549, 'batch_size': 128, 'num_epochs': 359}
+Final MAPE: 1.59%
