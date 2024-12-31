@@ -10,6 +10,16 @@ __author__ = "Vinz Roosen, Jan-Mathijs Pex, Lars Gielen"
 __version__ = "0.1.0"
 __license__ = "GPLv3"
 
+# Default hyperparameters for manual training
+DEFAULT_HYPERPARAMS = {
+    "time_steps": 16,
+    "hidden_size": 36,
+    "num_layers": 1,
+    "learning_rate": 0.005522699155672549,
+    "batch_size": 128,
+    "num_epochs": 359
+}
+
 def setup_logging(output_file):
     logging.basicConfig(
         filename=output_file,
@@ -49,43 +59,72 @@ def main(args):
 
     training_file = args.training_file
     testing_file = args.testing_file
+    use_optuma = args.use_optuma
 
     training_data = pd.read_csv(training_file)
     testing_data = pd.read_csv(testing_file)
 
-    study = optuna.create_study(direction="minimize")
-    logging.info("Starting hyperparameter optimization...")
-    study.optimize(lambda trial: objective(trial, training_data, testing_data), n_trials=50)
+    if use_optuma:
+        logging.info("Starting hyperparameter optimization...")
+        study = optuna.create_study(direction="minimize")
+        study.optimize(lambda trial: objective(trial, training_data, testing_data), n_trials=50)
 
-    fig = optuna.visualization.matplotlib.plot_param_importances(study)
-    fig.figure.savefig("hyperparameter_importances.png", dpi=300)
+        fig = optuna.visualization.matplotlib.plot_param_importances(study)
+        fig.figure.savefig("hyperparameter_importances.png", dpi=300)
 
-    best_trial = study.best_trial
-    logging.info("Best Trial:")
-    logging.info(f"  MAPE: {best_trial.value:.2f}%")
-    logging.info(f"  Hyperparameters: {best_trial.params}")
+        best_trial = study.best_trial
+        logging.info("Best Trial:")
+        logging.info(f"  MAPE: {best_trial.value:.2f}%")
+        logging.info(f"  Hyperparameters: {best_trial.params}")
 
-    best_params = best_trial.params
-    trainer = LSTMTrainer(
-        data=training_data,
-        target_column='Last Close',
-        time_steps=best_params["time_steps"],
-        test_size=0.2,
-        batch_size=best_params["batch_size"],
-        hidden_size=best_params["hidden_size"],
-        num_layers=best_params["num_layers"],
-        learning_rate=best_params["learning_rate"],
-        num_epochs=best_params["num_epochs"]
-    )
-    trainer.train()
+        best_params = best_trial.params
+        trainer = LSTMTrainer(
+            data=training_data,
+            target_column='Last Close',
+            time_steps=best_params["time_steps"],
+            test_size=0.2,
+            batch_size=best_params["batch_size"],
+            hidden_size=best_params["hidden_size"],
+            num_layers=best_params["num_layers"],
+            learning_rate=best_params["learning_rate"],
+            num_epochs=best_params["num_epochs"]
+        )
+        trainer.train()
+        final_mape = trainer.test(testing_data)
+        print(f"Final MAPE with optimized parameters: {final_mape:.2f}%")
+        logging.info(f"Final MAPE with optimized parameters: {final_mape:.2f}%")
+    else:
+        params = DEFAULT_HYPERPARAMS
 
-    final_mape = trainer.test(testing_data)
-    logging.info(f"Final MAPE with optimized parameters: {final_mape:.2f}%")
+        logging.info("Optuna is disabled. Training with default hyperparameters...")
+        logging.info("Training with default hyperparameters:")
+        logging.info(params)
+
+        trainer = LSTMTrainer(
+            data=training_data,
+            target_column='Last Close',
+            time_steps=params["time_steps"],
+            test_size=0.2,
+            batch_size=params["batch_size"],
+            hidden_size=params["hidden_size"],
+            num_layers=params["num_layers"],
+            learning_rate=params["learning_rate"],
+            num_epochs=params["num_epochs"]
+        )
+        trainer.train()
+        final_mape = trainer.test(testing_data)
+        print(f"Final MAPE with optimized parameters: {final_mape:.2f}%")
+        logging.info(f"Final MAPE with default parameters: {final_mape:.2f}%")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("training_file", help="Training data file")
     parser.add_argument("testing_file", help="Testing data file")
+    parser.add_argument(
+        "--use_optuma",
+        action="store_true",
+        help="Enable Optuna for hyperparameter optimization"
+    )
     parser.add_argument(
         "--version",
         action="version",
